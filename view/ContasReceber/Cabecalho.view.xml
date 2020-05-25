@@ -1,0 +1,38 @@
+<mvc:View controllerName="sap.fi.gestaoboletos.controller.ContasReceber" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" class="sapUiSizeCompact">
+	
+	<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12"
+		adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="4" columnsL="4" columnsM="4"
+		singleContainerFullSize="false" title="Partidas individuais de Parceiros">
+		
+		<f:content>
+			
+			<!-- 1º coluna - Início -->
+			<core:Title text="" level="H6"/>
+			<Label text="Cliente" required="false"/>
+			<Input id="idCliente" type="Text" showValueHelp="true" valueHelpRequest="" change="" value="" valueState="" />
+			<!-- 1º coluna - Fim -->
+			
+			<!--2º coluna - Início -->
+			<core:Title text="" level="H6"/>
+			<Label text="Segmento" required="false"/>
+			<Input id="idSegmento" type="Text" showValueHelp="true" valueHelpRequest="" change="" value="" valueState="" />
+			<!--2º coluna - Fim -->
+			
+			<!--3º coluna - Início -->
+			<core:Title text="" level="H6"/>
+			<Label text="Empresa" required="false"/>
+			<Input id="idEmpresa" type="Text" showValueHelp="true" valueHelpRequest="" change="" value="" valueState="" />
+			<!--3º coluna - Fim -->
+			
+			<!--4º coluna - Início -->
+			<core:Title text="" level="H6"/>
+			<Label text="Referência" required="false"/>
+			<Input id="idReferencia" type="Text" showValueHelp="false" valueHelpRequest="" change="" value="" valueState="" />
+			<!--4º coluna - Fim -->
+			
+		</f:content>
+		
+	</f:SimpleForm>
+	
+</mvc:View>
