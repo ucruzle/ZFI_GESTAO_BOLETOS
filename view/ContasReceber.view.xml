@@ -1,0 +1,28 @@
+<mvc:View controllerName="sap.fi.gestaoboletos.controller.ContasReceber" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Page title="Gestão de Boletos - Contas à Receber" showHeader="true" showNavButton="true" navButtonPress="onNavBack">
+		<content>
+			<!--<FlexBox justifyContent="End" class="sapUiLargeMarginEnd">-->
+			<!--	<Button text="Salvar operação" press="onSaveOperacao" type="Emphasized"/>-->
+			<!--</FlexBox>-->
+			<!--<mvc:XMLView viewName="sap.fi.gestaoboletos.view.Cockpit"/>-->
+			<!--<mvc:XMLView viewName="sap.fi.gestaoboletos.view.ContasReceber"/>-->
+			<!--<mvc:XMLView viewName="sap.fi.gestaoboletos.view.TableMateriais"/>-->
+			<!--<mvc:XMLView viewName="sap.fi.gestaoboletos.view.Nota"/>-->
+		</content>
+		<footer>
+			<Toolbar>
+				<!--<Button id="buttonImprimir" text="Imprimir" press="onPrint">-->
+				<!--	<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>-->
+				<!--</Button>-->
+				<!--<ToolbarSpacer/>-->
+				<!--<Button type="Emphasized" text="Salvar" press="onSave">-->
+				<!--	<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>-->
+				<!--</Button>-->
+				<!--<Button text="Cancelar">-->
+				<!--	<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>-->
+				<!--</Button>-->
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>
