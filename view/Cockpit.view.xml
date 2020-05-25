@@ -1,0 +1,59 @@
+<mvc:View controllerName="sap.fi.gestaoboletos.controller.Cockpit" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" class="sapUiSizeCompact">
+	
+	<Page title="Gestão de Boletos - Cockpit" showHeader="true" showNavButton="false">
+		<content>
+	
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Contas à Receber" subheader="Processamento"
+				press="onContasReceber">
+				<TileContent
+					footer="Consultar e processar, informações da partida que gerou, datas, nosso número, código barras, ocorrências (entrada registrada, confirmação, liquidação normal, outras).">
+					<ImageContent src="sap-icon://batch-payments"/>
+				</TileContent>
+			</GenericTile>
+			
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Integração" subheader="remessa e retorno"
+				press="onIntegracao">
+				<TileContent footer="Integração. Envio de remessa e retorno através de VAN ou serviço Web">
+					<ImageContent src="sap-icon://share"/>
+				</TileContent>
+			</GenericTile>
+			
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Conciliação" subheader="Programação" press="onConciliacao">
+				<TileContent
+					footer="Importação de extrato bancário para conciliação. Mapeamento de depósito identificado, TED e DOC, gerando crédito em conta">
+					<ImageContent src="sap-icon://wallet"/>
+				</TileContent>
+			</GenericTile>
+			
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Operações FIDC" subheader="FIDC" press="onFidc">
+				<TileContent footer="Operações FIDC">
+					<ImageContent src="sap-icon://waiver"/>
+				</TileContent>
+			</GenericTile>
+			
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Boleto" subheader="Impressão" press="onBoleto">
+				<TileContent footer="Impressão de boleto inteligente, ou integração SAP">
+					<ImageContent src="sap-icon://bar-code"/>
+				</TileContent>
+			</GenericTile>
+	
+		</content>
+		<footer>
+			<Toolbar>
+				<!--<Button id="buttonImprimir" text="Imprimir" press="onPrint">-->
+				<!--	<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>-->
+				<!--</Button>-->
+				<!--<ToolbarSpacer/>-->
+				<!--<Button type="Emphasized" text="Salvar" press="onSave">-->
+				<!--	<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>-->
+				<!--</Button>-->
+				<!--<Button text="Cancelar">-->
+				<!--	<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>-->
+				<!--</Button>-->
+			</Toolbar>
+		</footer>
+		
+	</Page>
+	
+</mvc:View>
