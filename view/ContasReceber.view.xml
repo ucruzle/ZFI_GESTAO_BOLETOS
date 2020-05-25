@@ -5,8 +5,8 @@
 			<!--<FlexBox justifyContent="End" class="sapUiLargeMarginEnd">-->
 			<!--	<Button text="Salvar operação" press="onSaveOperacao" type="Emphasized"/>-->
 			<!--</FlexBox>-->
-			<!--<mvc:XMLView viewName="sap.fi.gestaoboletos.view.Cockpit"/>-->
-			<!--<mvc:XMLView viewName="sap.fi.gestaoboletos.view.ContasReceber"/>-->
+			<mvc:XMLView viewName="sap.fi.gestaoboletos.view.ContasReceber.Cabecalho"/>
+			<mvc:XMLView viewName="sap.fi.gestaoboletos.view.ContasReceber.ListaPartidas"/>
 			<!--<mvc:XMLView viewName="sap.fi.gestaoboletos.view.TableMateriais"/>-->
 			<!--<mvc:XMLView viewName="sap.fi.gestaoboletos.view.Nota"/>-->
 		</content>

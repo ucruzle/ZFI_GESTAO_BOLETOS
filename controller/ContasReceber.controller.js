@@ -29,6 +29,52 @@ sap.ui.define([
 				oRouter.navTo("cockpit", {}, true);
 			}
 			
+		},
+		
+		onConsultaPartidas: function(oEvent) {
+			
+			// create JSON model instance
+			var oModel = new JSONModel();
+
+			// JSON sample data
+			var oData = {
+				Partidas: [
+					{
+						idCliente:"20000100", 
+						nome:"COCA COLA", 
+						cidade:"RIO DE JANEIRO", 
+						segmento:"Alimentício",
+						empresa:"9000"
+					},
+					{
+						idCliente:"20000101", 
+						nome:"Nestle", 
+						cidade:"RIBEIRÃO PRETO", 
+						segmento:"Alimentício",
+						empresa:"9001"
+					},
+					{
+						idCliente:"20000102", 
+						nome:"DELL", 
+						cidade:"SÃO PAULO", 
+						segmento:"Tecnologia",
+						empresa:"9002"
+					},
+					{
+						idCliente:"20000103", 
+						nome:"LENOVO", 
+						cidade:"SÃO PAULO", 
+						segmento:"Tecnologia",
+						empresa:"9003"
+					}
+				]};
+
+			// set the data for the model
+			oModel.setData(oData);
+			var oView = this.getView();
+			// set the model to the core
+			oView.setModel(oModel);
+			
 		}
 		
 		// onFiltrarBaixaPendente: function(oEvent) {
