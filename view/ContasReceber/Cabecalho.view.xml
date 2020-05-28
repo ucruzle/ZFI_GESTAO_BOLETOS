@@ -10,19 +10,19 @@
 			<!-- 1º coluna - Início -->
 			<core:Title text="" level="H6"/>
 			<Label text="Cliente" required="false"/>
-			<Input id="idCliente" type="Text" showValueHelp="true" valueHelpRequest="" change="" value="" valueState="" />
+			<Input id="idCliente" type="Text" showValueHelp="true" valueHelpRequest="handleValueHelpClientes" change="" value="" valueState="" />
 			<!-- 1º coluna - Fim -->
 			
 			<!--2º coluna - Início -->
 			<core:Title text="" level="H6"/>
 			<Label text="Segmento" required="false"/>
-			<Input id="idSegmento" type="Text" showValueHelp="true" valueHelpRequest="" change="" value="" valueState="" />
+			<Input id="idSegmento" type="Text" showValueHelp="true" valueHelpRequest="handleValueHelpSegmentos" change="" value="" valueState="" />
 			<!--2º coluna - Fim -->
 			
 			<!--3º coluna - Início -->
 			<core:Title text="" level="H6"/>
 			<Label text="Empresa" required="false"/>
-			<Input id="idEmpresa" type="Text" showValueHelp="true" valueHelpRequest="" change="" value="" valueState="" />
+			<Input id="idEmpresa" type="Text" showValueHelp="true" valueHelpRequest="handleValueHelpEmpresas" change="" value="" valueState="" />
 			<!--3º coluna - Fim -->
 			
 			<!--4º coluna - Início -->

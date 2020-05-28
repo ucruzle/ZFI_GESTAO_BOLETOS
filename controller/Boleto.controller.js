@@ -29,6 +29,60 @@ sap.ui.define([
 				oRouter.navTo("cockpit", {}, true);
 			}
 			
+		},
+		
+		onAdicionaPartidas: function() {
+			
+			// create JSON model instance
+			var oModel = new JSONModel();
+
+			// JSON sample data
+			var oData = {
+				Partidas: [
+					{
+						atribuicao:"20200504", 
+						nroDocumento:"5101045518", 
+						dataLancamento:"04/05/2018",
+						dataProgramacao:"04/05/2018",
+						valorBruto:"0,80-",
+						desconto:"",
+						percentual:""
+					},
+					{
+						atribuicao:"20200504", 
+						nroDocumento:"5101045519", 
+						dataLancamento:"04/05/2018",
+						dataProgramacao:"04/05/2018",
+						valorBruto:"1,60-",
+						desconto:"",
+						percentual:""
+					},
+					{
+						atribuicao:"20200504", 
+						nroDocumento:"5101045520", 
+						dataLancamento:"04/05/2018",
+						dataProgramacao:"04/05/2018",
+						valorBruto:"3,80-",
+						desconto:"",
+						percentual:""
+					},
+					{
+						atribuicao:"20200504", 
+						nroDocumento:"5101045521", 
+						dataLancamento:"04/05/2018",
+						dataProgramacao:"04/05/2018",
+						valorBruto:"0,45-",
+						desconto:"",
+						percentual:""
+					}
+				]};
+
+			// set the data for the model
+			oModel.setData(oData);
+			var oView = this.getView();
+			// set the model to the core
+			oView.setModel(oModel);
+			
 		}
 		
 		// onFiltrarBaixaPendente: function(oEvent) {

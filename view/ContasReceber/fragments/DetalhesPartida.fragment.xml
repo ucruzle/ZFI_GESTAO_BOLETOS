@@ -1,0 +1,258 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	
+	<Dialog title="Detalhes do Documento" class="sapUiSizeCompact" contentWidth="100%" contentHeight="100%">
+		
+		<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="3" labelSpanM="12" labelSpanS="12"
+					  adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3"
+					  singleContainerFullSize="false">
+			<f:content>
+				
+				<!-- 1º Início - Coluna -->
+				
+				<core:Title text="" level="H6"/>
+				<Label text="Cliente" required="false"/>
+				<Input id="idCliente" type="Text" showValueHelp="true" valueHelpRequest="handleValueHelpClientes" 
+				       change="" value="" valueState="" tooltip="Código do Cliente">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12"/>
+					</layoutData>
+				</Input>
+				<Input id="descricaoCliente" type="Text" enabled="false" value="{/descricaoCliente}" />
+				<Label text="Empresa" required="false"/>
+				<Input id="idEmpresa" type="Text" showValueHelp="true" valueHelpRequest="handleValueHelpEmpresas" 
+				       change="" value="" valueState="" tooltip="Código da Empresa">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12"/>
+					</layoutData>
+				</Input>
+				<Input id="descricaoEmpresa" type="Text" enabled="false" value="{/descricaoEmpresa}" />				
+				
+				<!-- 1º Fim - Coluna -->
+				
+				<!-- 2º Início - Coluna -->
+				
+				<core:Title text="" level="H6"/>
+				<Label text="Razão" />
+				<Input id="razao" type="Text" enabled="false" value="{/razao}" tooltip="Documento Razão">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12"/>
+					</layoutData>
+				</Input>
+				<Label text="Nº Doc." />
+				<Input id="nroDocumento" type="Text" enabled="false" value="{/nroDocumento}" tooltip="Nº do Documento Contábil">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12"/>
+					</layoutData>
+				</Input>
+				
+				<!-- 2º Fim - Coluna -->
+				
+				<!-- 3º Início - Coluna -->
+				
+				<core:Title text="" level="H6"/>
+				<Label text="" />
+				
+				<!-- 3º Fim - Coluna -->
+				
+			</f:content>
+			
+		</f:SimpleForm>
+		
+		<Panel width="auto" class="sapUiResponsiveMargin">
+			<headerToolbar>
+				<OverflowToolbar>
+					<Title text="Item 1 / Fatura / 31"/>
+					<ToolbarSpacer />
+					<!--<Button icon="sap-icon://settings" />-->
+					<!--<Button icon="sap-icon://drop-down-list" />-->
+				</OverflowToolbar>
+			</headerToolbar>
+			<content>
+				
+				<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="3" labelSpanM="12" labelSpanS="12"
+							  adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3"
+							  singleContainerFullSize="false">
+					<f:content>
+				
+						<!-- 1º Início - Coluna -->
+				
+						<core:Title text="" level="H6"/>
+						
+						<Label text="Montante" required="false"/>
+						<Input id="montante" type="Number" showValueHelp="false" valueHelpRequest="" 
+						       change="" value="" valueState="" tooltip="Valor do Montante">
+							<layoutData>
+								<!--<l:GridData span="XL2 L2 M2 S2"/>-->
+								<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+								<l:GridData span="XL6 L6 M7 S7"/>
+							</layoutData>
+						</Input>
+						<Input id="moeda" type="Text" enabled="false" value="BRL" />
+						
+						<!-- 1º Fim - Coluna -->
+						
+						<!-- 2º Início - Coluna -->
+						
+						<core:Title text="" level="H6"/>
+						<Label text="Cód.Imposto" required="false"/>
+						<Input id="codigoImposto" type="Text" showValueHelp="false" valueHelpRequest="" 
+						       change="" value="**" valueState="" tooltip="Código do Imposto">
+							<layoutData>
+								<l:GridData span="XL3 L3 M3 S12"/>
+							</layoutData>
+						</Input>
+						<Input id="impostoDescricao" type="Text" enabled="false" value="" />
+						
+						<!-- 2º Fim - Coluna -->
+						
+						<!-- 3º Início - Coluna -->
+						
+						<core:Title text="" level="H6"/>
+						
+						<!-- 3º Fim - Coluna -->
+				
+					</f:content>
+					
+				</f:SimpleForm>
+				
+			</content>
+		</Panel>
+		
+		<Panel width="auto" class="sapUiResponsiveMargin">
+			<headerToolbar>
+				<OverflowToolbar>
+					<Title text="Dados Adicionais"/>
+					<ToolbarSpacer />
+					<!--<Button icon="sap-icon://settings" />-->
+					<!--<Button icon="sap-icon://drop-down-list" />-->
+				</OverflowToolbar>
+			</headerToolbar>
+			<content>
+				
+				<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="3" labelSpanM="12" labelSpanS="12"
+							  adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3"
+							  singleContainerFullSize="false">
+					<f:content>
+				
+						<!-- 1º Início - Coluna -->
+				
+						<core:Title text="" level="H6"/>
+						<Label text="Divisão" required="false"/>
+						<Input id="divisao" type="Text" showValueHelp="false" valueHelpRequest="" 
+						       change="" value="" valueState="" tooltip="Divisão">
+							<layoutData>
+								<l:GridData span="XL2 L2 M2 S2"/>
+								<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+								<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+							</layoutData>
+						</Input>
+						<Label text="Base descon." required="false"/>
+						<Input id="baseDesconto" type="Text" showValueHelp="false" valueHelpRequest="" 
+						       change="" value="" valueState="" tooltip="Base de Desconto">
+							<layoutData>
+								<!--<l:GridData span="XL2 L2 M2 S2"/>-->
+								<l:GridData span="XL3 L3 M3 S12"/>
+								<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+							</layoutData>
+						</Input>
+						<Input id="baseDescontoDescricao" type="Text" enabled="false" value="" />
+						<Label text="Cond.pgto" required="false"/>
+						<Input id="condPgto" type="Text" showValueHelp="false" valueHelpRequest="" 
+						       change="" value="" valueState="" tooltip="Condição de Pagamentos">
+							<layoutData>
+								<l:GridData span="XL2 L2 M2 S2"/>
+								<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+								<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+							</layoutData>
+						</Input>
+						<Label text="Data base" required="false"/>
+						<DatePicker id="idDataBase" displayFormat="short" 
+									value="{ path: '/dataBase', type: 'sap.ui.model.type.Date', formatOptions: {style: 'short', UTC: true}}" 
+									tooltip="Data Base" change="" />
+						
+						<!-- 1º Fim - Coluna -->
+						
+						<!-- 2º Início - Coluna -->
+						
+						<core:Title text="" level="H6"/>
+						<Label text="Bloq / Fm" required="false"/>
+						<Input id="bloqueioPgto" type="Text" showValueHelp="false" valueHelpRequest="" 
+						       change="" value="" valueState="" tooltip="Bloqueio de Pagamento">
+							<layoutData>
+								<l:GridData span="XL2 L2 M2 S2"/>
+								<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+								<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+							</layoutData>
+						</Input>
+						<Input id="formaPgto" type="Text" showValueHelp="false" valueHelpRequest="" 
+						       change="" value="" valueState="" tooltip="Forma de Pagamento">
+							<layoutData>
+								<l:GridData span="XL2 L2 M2 S2"/>
+								<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+								<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+							</layoutData>
+						</Input>
+						<Label text="Atribuição" required="false"/>
+						<Input id="idAtribuicao" type="Text" showValueHelp="false" valueHelpRequest="" change="" value="" valueState="" />
+						<Label text="Refer.banco" required="false"/>
+						<Input id="idReferBanco" type="Text" showValueHelp="false" valueHelpRequest="" 
+						       change="" value="" valueState="" tooltip="Banco Refência">
+							<layoutData>
+								<l:GridData span="XL2 L2 M2 S2"/>
+								<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+								<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+							</layoutData>
+						</Input>
+						<Input id="referBancoDescricao" type="Text" enabled="false" value="" />
+						<Label text="Texto" required="false"/>
+						<Input id="idTexto" type="Text" showValueHelp="false" valueHelpRequest="" change="" value="" valueState="" />
+						
+						<!-- 2º Fim - Coluna -->
+						
+						<!-- 3º Início - Coluna -->
+						
+						<core:Title text="" level="H6"/>
+						<Label text="Mont.descon." required="false"/>
+						<Input id="montanteDesconto" type="Number" showValueHelp="false" valueHelpRequest="" 
+						       change="" value="" valueState="" tooltip="Valor do Montante de Desconto">
+							<layoutData>
+								<!--<l:GridData span="XL2 L2 M2 S2"/>-->
+								<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+								<l:GridData span="XL6 L6 M7 S7"/>
+							</layoutData>
+						</Input>
+						<Input id="moedaMontanteDesconto" type="Text" enabled="false" value="BRL" />
+						<Label text="Dias / %" required="false"/>
+						<Input id="idDias" type="Text" showValueHelp="false" valueHelpRequest="" change="" value="" valueState="" enabled="false" />
+						<Label text="Fixado" required="false"/>
+						<Input id="idFixado" type="Text" showValueHelp="false" valueHelpRequest="" 
+						       change="" value="" valueState="" tooltip="Fixado">
+							<layoutData>
+								<l:GridData span="XL2 L2 M2 S2"/>
+								<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+								<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+							</layoutData>
+						</Input>
+						<Label text="Fatura Ref." required="false"/>
+						<Input id="idFaturaRef" type="Text" showValueHelp="false" valueHelpRequest="" change="" value="" valueState="" enabled="false" />
+						
+						<!-- 3º Fim - Coluna -->
+				
+					</f:content>
+					
+				</f:SimpleForm>
+				
+			</content>
+		</Panel>
+		
+		<beginButton>
+			<Button type="Emphasized" text="Confirmar" press="onSaveDetalhesPartida" />
+		</beginButton>
+		<endButton>
+			<Button text="Fechar" press="onCloseDetalhesPartida" />
+		</endButton>
+		
+	</Dialog>
+	
+</core:FragmentDefinition>

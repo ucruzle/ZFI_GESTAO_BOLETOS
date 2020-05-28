@@ -1,0 +1,56 @@
+<mvc:View controllerName="sap.fi.gestaoboletos.controller.Integracao" 
+		  xmlns="sap.ui.table"
+		  xmlns:mvc="sap.ui.core.mvc"
+		  xmlns:u="sap.ui.unified"
+		  xmlns:c="sap.ui.core"
+		  xmlns:m="sap.m"
+	      height="100%">
+	
+		<Table
+			rows="{/Controle}"
+			selectionMode="Single"
+			visibleRowCount="3"
+			ariaLabelledBy="title">
+			<extension>
+				<m:OverflowToolbar>
+					<m:ToolbarSpacer />
+					<m:Button icon="sap-icon://add" press="onAddControleParametros" />
+				</m:OverflowToolbar>
+			</extension>
+			<columns>
+				<Column width="11rem" hAlign="Center">
+					<multiLabels>
+						<m:Label text="Empresas" tooltip="Empresas" />
+					</multiLabels>
+					<template>
+						<m:Input value="{empresas}" 
+								 enabled="true" 
+								 tooltip="Empresa"
+								 showValueHelp="true" />
+					</template>
+				</Column>
+				<Column width="6rem" hAlign="Center">
+					<multiLabels>
+						<m:Label text="FmPgto." tooltip="Forma de Pagamento" />
+					</multiLabels>
+					<template>
+						<m:Input value="{formaPagamento}" 
+								 enabled="true" 
+								 tooltip="Forma de Pagamento"
+								 showValueHelp="true" />
+					</template>
+				</Column>
+				<Column width="11rem" hAlign="Center">
+					<multiLabels>
+						<m:Label text="Próx.dta.lan" tooltip="Próxima Data de Lançamento" />
+				    </multiLabels>
+					<template>
+						<m:DatePicker displayFormat="short" 
+							          value="{proximaDataLancamento}" 
+								      tooltip="Próxima Data de Lançamento" change="" />
+					</template>
+				</Column>
+			</columns>
+		</Table>
+	
+</mvc:View>

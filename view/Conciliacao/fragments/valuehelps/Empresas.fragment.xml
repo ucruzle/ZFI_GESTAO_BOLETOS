@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+
+	<TableSelectDialog noDataText="Nenhuma empresa encontrada" title="Selecionar Empresa" search="handleValueHelpSearchEmpresas"
+	    liveChange="handleValueHelpSearchEmpresas" confirm="handleCloseEmpresas" multiSelect="false" growingThreshold="500"
+		items="{Empresas}">
+		<ColumnListItem>
+			<cells>
+				<Text text="{idEmpresa}"/>
+				<Text text="{nome}"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column width="12em">
+				<header></header>
+			</Column>
+			<Column width="12em">
+				<header></header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+	
+</core:FragmentDefinition>

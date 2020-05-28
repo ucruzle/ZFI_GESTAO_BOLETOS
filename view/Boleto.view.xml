@@ -5,7 +5,7 @@
 			<!--<FlexBox justifyContent="End" class="sapUiLargeMarginEnd">-->
 			<!--	<Button text="Salvar operação" press="onSaveOperacao" type="Emphasized"/>-->
 			<!--</FlexBox>-->
-			<!--<mvc:XMLView viewName="sap.fi.gestaoboletos.view.Cockpit"/>-->
+			<mvc:XMLView viewName="sap.fi.gestaoboletos.view.Boleto.Cabecalho"/>
 			<!--<mvc:XMLView viewName="sap.fi.gestaoboletos.view.Boleto"/>-->
 			<!--<mvc:XMLView viewName="sap.fi.gestaoboletos.view.TableMateriais"/>-->
 			<!--<mvc:XMLView viewName="sap.fi.gestaoboletos.view.Nota"/>-->
@@ -15,10 +15,10 @@
 				<!--<Button id="buttonImprimir" text="Imprimir" press="onPrint">-->
 				<!--	<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>-->
 				<!--</Button>-->
-				<!--<ToolbarSpacer/>-->
-				<!--<Button type="Emphasized" text="Salvar" press="onSave">-->
-				<!--	<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>-->
-				<!--</Button>-->
+				<ToolbarSpacer/>
+				<Button type="Emphasized" text="Processar" press="onProcessarBoleto">
+					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+				</Button>
 				<!--<Button text="Cancelar">-->
 				<!--	<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>-->
 				<!--</Button>-->

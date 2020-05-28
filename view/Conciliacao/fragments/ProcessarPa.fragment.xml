@@ -1,0 +1,195 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:t="sap.ui.table" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	
+	<Dialog title="Compensar parceiro Processar partidas em aberto" class="sapUiSizeCompact" contentWidth="100%" contentHeight="100%">
+		<IconTabBar
+			id="idIconTabBarMulti"
+			class="sapUiResponsiveContentPadding">
+			<items>
+				<IconTabFilter
+					icon="sap-icon://table-view" text="Padrão">
+					
+					<Panel width="auto" class="sapUiResponsiveMargin" accessibleRole="Region">
+						<headerToolbar>
+							<OverflowToolbar>
+								<Title text="Partida para a conta"/>
+								<ToolbarSpacer />
+								<!--<Button icon="sap-icon://settings" />-->
+								<!--<Button icon="sap-icon://drop-down-list" />-->
+							</OverflowToolbar>
+						</headerToolbar>
+						<content>
+
+							<Table id="itensPartidas" width="auto" updateFinished="onListUpdateFinished" 
+								noDataText="Nenhum partida localizada" busyIndicatorDelay="{detailView>/lineItemTableDelay}" fixedLayout="false"
+								class="sapUiResponsiveMargin" items="{/Padroes}">
+								<columns>
+									<Column>
+										<Text text="Atribuição"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Nº Documento"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Data de Lançamento"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Data de Programação"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Valor Bruto"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Desconto"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="% de Desconto"/>
+									</Column>
+								</columns>
+								<items >
+									<ColumnListItem type="Navigation" press="onEditPartidas">
+										<cells>
+											<Text text="{atribuicao}"/>
+											<Text text="{nroDocumento}"/>
+											<Text text="{dataLancamento}"/>
+											<Text text="{dataProgramacao}"/>
+											<Text text="{valorBruto}"/>
+											<Input value="{desconto}" enabled="true" tooltip="Valor Bruto" showValueHelp="false" />
+											<Input value="{percentual}" enabled="true" tooltip="% de Desconto" showValueHelp="false" />
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+							
+						</content>
+					</Panel>
+					
+				</IconTabFilter>
+				
+			</items>
+		</IconTabBar>
+		
+		<Panel width="auto" class="sapUiResponsiveMargin">
+			<headerToolbar>
+				<OverflowToolbar>
+					<Title text="Status de processamento"/>
+					<ToolbarSpacer />
+					<!--<Button icon="sap-icon://settings" />-->
+					<!--<Button icon="sap-icon://drop-down-list" />-->
+				</OverflowToolbar>
+			</headerToolbar>
+			<content>
+				
+				<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="3" labelSpanM="12" labelSpanS="12"
+							  adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3"
+							  singleContainerFullSize="false">
+					<f:content>
+				
+						<!-- 1º Início - Coluna -->
+				
+						<core:Title text="" level="H6"/>
+						<Label text="Nº Partidas" required="false"/>
+						<Input id="idNroPartidas" type="Text" showValueHelp="true" valueHelpRequest="" 
+						       change="" value="" valueState="" tooltip="Nº Partidas">
+							<layoutData>
+								<!--<l:GridData span="XL2 L2 M2 S2"/>-->
+								<l:GridData span="XL3 L3 M3 S12"/>
+								<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+							</layoutData>
+						</Input>
+						<Label text="Exib. Item" required="false"/>
+						<Input id="exibePartirItem" type="Text" showValueHelp="true" valueHelpRequest="" 
+						       change="" value="" valueState="" tooltip="Exibe à partir do Item">
+							<layoutData>
+								<!--<l:GridData span="XL2 L2 M2 S2"/>-->
+								<l:GridData span="XL3 L3 M3 S12"/>
+								<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+							</layoutData>
+						</Input>
+						<Label text="Mont. dif" required="false"/>
+						<Input id="idMotivoDiferenca" type="Text" showValueHelp="false" valueHelpRequest="" 
+						       change="" value="" valueState="" tooltip="Motivo de diferença">
+							<layoutData>
+								<l:GridData span="XL2 L2 M2 S2"/>
+								<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+								<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+							</layoutData>
+						</Input>
+						<Label text="Exib. Moeda" required="false"/>
+						<Input id="idExibeMoeda" type="Text" showValueHelp="false" valueHelpRequest="" 
+						       change="" value="" valueState="" tooltip="Exibe na moeda de compensação">
+							<layoutData>
+								<l:GridData span="XL2 L2 M2 S2"/>
+								<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+								<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+							</layoutData>
+						</Input>
+						
+						<!-- 1º Fim - Coluna -->
+						
+						<!-- 2º Início - Coluna -->
+						
+						<core:Title text="" level="H6"/>
+						<Label text="" />
+						
+						<!-- 2º Fim - Coluna -->
+						
+						<!-- 3º Início - Coluna -->
+						
+						<core:Title text="" level="H6"/>
+						<Label text="Mont. enc" required="false"/>
+						<Input id="idMontanteEncontrado" type="Number" showValueHelp="false" valueHelpRequest="" 
+						       change="" value="" valueState="" tooltip="Montante encontrado">
+							<layoutData>
+								<!--<l:GridData span="XL2 L2 M2 S2"/>-->
+								<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+								<l:GridData span="XL6 L6 M7 S7"/>
+							</layoutData>
+						</Input>
+						<Label text="Atribuído" required="false"/>
+						<Input id="idAtribuido" type="Number" showValueHelp="false" valueHelpRequest="" 
+						       change="" value="" valueState="" tooltip="Atribuído">
+							<layoutData>
+								<!--<l:GridData span="XL2 L2 M2 S2"/>-->
+								<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+								<l:GridData span="XL6 L6 M7 S7"/>
+							</layoutData>
+						</Input>
+						<Label text="Lçto dif" required="false"/>
+						<Input id="idLancamentoDeiferenca" type="Number" showValueHelp="false" valueHelpRequest="" 
+						       change="" value="" valueState="" tooltip="Lançamento de diferença">
+							<layoutData>
+								<!--<l:GridData span="XL2 L2 M2 S2"/>-->
+								<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+								<l:GridData span="XL6 L6 M7 S7"/>
+							</layoutData>
+						</Input>
+						<Label text="Não atrib" required="false"/>
+						<Input id="idNaoAtribuido" type="Number" showValueHelp="false" valueHelpRequest="" 
+						       change="" value="" valueState="" tooltip="Não atribuído">
+							<layoutData>
+								<!--<l:GridData span="XL2 L2 M2 S2"/>-->
+								<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+								<l:GridData span="XL6 L6 M7 S7"/>
+							</layoutData>
+						</Input>
+						
+						<!-- 3º Fim - Coluna -->
+				
+					</f:content>
+					
+				</f:SimpleForm>
+				
+			</content>
+		</Panel>
+		
+		<beginButton>
+			<Button type="Emphasized" text="Confirmar" press="onSaveProcessarPa" />
+		</beginButton>
+		<endButton>
+			<Button text="Fechar" press="onCloseProcessarPa" />
+		</endButton>
+		
+	</Dialog>
+	
+</core:FragmentDefinition>

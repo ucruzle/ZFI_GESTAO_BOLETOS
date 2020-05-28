@@ -1,4 +1,4 @@
-<mvc:View controllerName="sap.fi.gestaoboletos.controller.ContasReceber" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+<mvc:View controllerName="sap.fi.gestaoboletos.controller.Conciliacao" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
 	xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
 	
 	<Table id="itensPartidas" delete="onDeletePartida" width="auto" updateFinished="onListUpdateFinished" mode="Delete" itemPress="onEditPartida"
