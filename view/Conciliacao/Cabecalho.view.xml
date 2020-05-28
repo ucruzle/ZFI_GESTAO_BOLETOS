@@ -1,0 +1,135 @@
+<mvc:View controllerName="sap.fi.gestaoboletos.controller.Conciliacao" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" class="sapUiSizeCompact">
+	
+	<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12"
+		adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="4" columnsL="4" columnsM="4"
+		singleContainerFullSize="false" title="Compensar Parceiro: Dados do cabeçalho">
+		
+		<f:content>
+			
+			<!-- 1º coluna - Início -->
+			<core:Title text="" level="H6"/>
+			<Label text="Conta" required="false"/>
+			<Input id="idConta" type="Text" showValueHelp="true" valueHelpRequest="handleValueHelpContas" change="" value="" valueState="" />
+			<Label text="Empresa" required="false"/>
+			<Input id="idEmpresa" type="Text" showValueHelp="true" valueHelpRequest="handleValueHelpEmpresas" change="" value="" valueState="">
+				<layoutData>
+					<!--<l:GridData span="XL2 L2 M2 S2"/>-->
+					<l:GridData span="XL3 L3 M3 S12"/>
+					<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+				</layoutData>
+			</Input>
+			<!-- 1º coluna - Fim -->
+			
+			<!--2º coluna - Início -->
+			<core:Title text="" level="H6"/>
+			<Label text="Data Comp." required="false"/>
+			<DatePicker id="idDataCompensacao" displayFormat="short" 
+						value="{ path: '/dataCompensacao', type: 'sap.ui.model.type.Date', formatOptions: {style: 'short', UTC: true}}" 
+						tooltip="Data de Compensação" change="" />
+			<Label text="Moeda" required="false"/>
+			<Input id="idMoeda" type="Text" showValueHelp="true" valueHelpRequest="handleValueHelpMoeda" change="" value="" valueState="">
+		      <layoutData>
+					<!--<l:GridData span="XL2 L2 M2 S2"/>-->
+					<l:GridData span="XL3 L3 M3 S12"/>
+					<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+				</layoutData>
+			</Input>
+			<!--2º coluna - Fim -->
+			
+			<!--3º coluna - Início -->
+			<core:Title text="" level="H6"/>
+			<Label text="Período" required="false"/>
+			<Input id="idPeriodo" type="Text" showValueHelp="true" valueHelpRequest="handleValueHelpPeriodo" change="" value="" valueState="">
+				<layoutData>
+					<!--<l:GridData span="XL2 L2 M2 S2"/>-->
+					<l:GridData span="XL3 L3 M3 S12"/>
+					<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+				</layoutData>
+			</Input>
+			<!--3º coluna - Fim -->
+			
+			<!--4º coluna - Início -->
+			<core:Title text="" level="H6"/>
+			<Label text="" />
+			<!--4º coluna - Fim -->
+			
+		</f:content>
+		
+	</f:SimpleForm>
+	
+	<Panel width="auto" class="sapUiResponsiveMargin" accessibleRole="Region">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Title text="Seleção das partidas em aberto"/>
+				<ToolbarSpacer />
+				<!--<Button icon="sap-icon://settings" />-->
+				<!--<Button icon="sap-icon://drop-down-list" />-->
+			</OverflowToolbar>
+		</headerToolbar>
+		<content>
+			<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12"
+			    	adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="4" columnsL="4" columnsM="4"
+					singleContainerFullSize="false">
+						
+				<f:content>
+					
+					<!-- 1º coluna - Início -->
+					<core:Title text="" level="H6"/>
+					<Label text="Razão Esp." required="false"/>
+					<Input id="idRazao" type="Text" showValueHelp="true" valueHelpRequest="handleValueHelpContas" 
+						   change="" value="" valueState="" tooltip="Código Razão Especial" />
+				    <!-- 1º coluna - Fim -->
+				    
+				    <!-- 2º coluna - Início -->
+					<core:Title text="" level="H6"/>
+					<Label text="" />
+					<!-- 2º coluna - Fim -->
+					
+					<!-- 3º coluna - Início -->
+					<core:Title text="" level="H6"/>
+					<Label text="" />
+					<!-- 3º coluna - Fim -->
+					
+					<!-- 4º coluna - Início -->
+					<core:Title text="" level="H6"/>
+					<CheckBox id="paNormas" text="PA Normas" tooltip="PA Normas" selected="true" enabled="true" />
+					<!-- 4º coluna - Fim -->
+				    
+			    </f:content>
+		
+			</f:SimpleForm>
+			
+		</content>
+	</Panel>
+	
+	<Panel width="auto" class="sapUiResponsiveMargin" accessibleRole="Region">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Title text="outras restrições"/>
+				<ToolbarSpacer />
+				<!--<Button icon="sap-icon://settings" />-->
+				<!--<Button icon="sap-icon://drop-down-list" />-->
+			</OverflowToolbar>
+		</headerToolbar>
+		<content>
+			
+			<VBox class="sapUiSmallMargin">
+				<RadioButton groupName="GroupA" text="nenhum" selected="true" />
+				<RadioButton groupName="GroupA" text="Montante" />
+				<RadioButton groupName="GroupA" text="Nº documento" />
+				<RadioButton groupName="GroupA" text="Data de Lançamento" />
+				<RadioButton groupName="GroupA" text="Área de advertência" />
+				<RadioButton groupName="GroupA" text="Referência" />
+				<RadioButton groupName="GroupA" text="Ordem do Pagamento" />
+				<RadioButton groupName="GroupA" text="Fatura Coletiva" />
+				<RadioButton groupName="GroupA" text="Tipo de Documento" />
+				<RadioButton groupName="GroupA" text="Divisão" />
+				<RadioButton groupName="GroupA" text="Código de Imposto" />
+				<RadioButton groupName="GroupA" text="outra" />
+			</VBox>
+			
+		</content>
+	</Panel>
+	
+</mvc:View>

@@ -5,8 +5,8 @@
 			<!--<FlexBox justifyContent="End" class="sapUiLargeMarginEnd">-->
 			<!--	<Button text="Salvar operação" press="onSaveOperacao" type="Emphasized"/>-->
 			<!--</FlexBox>-->
-			<!--<mvc:XMLView viewName="sap.fi.gestaoboletos.view.Cockpit"/>-->
-			<!--<mvc:XMLView viewName="sap.fi.gestaoboletos.view.Conciliacao"/>-->
+			<mvc:XMLView viewName="sap.fi.gestaoboletos.view.Conciliacao.Cabecalho"/>
+			<!--<mvc:XMLView viewName="sap.fi.gestaoboletos.view.Conciliacao.ListaPartidas"/>-->
 			<!--<mvc:XMLView viewName="sap.fi.gestaoboletos.view.TableMateriais"/>-->
 			<!--<mvc:XMLView viewName="sap.fi.gestaoboletos.view.Nota"/>-->
 		</content>
@@ -15,10 +15,10 @@
 				<!--<Button id="buttonImprimir" text="Imprimir" press="onPrint">-->
 				<!--	<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>-->
 				<!--</Button>-->
-				<!--<ToolbarSpacer/>-->
-				<!--<Button type="Emphasized" text="Salvar" press="onSave">-->
-				<!--	<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>-->
-				<!--</Button>-->
+				<ToolbarSpacer/>
+				<Button type="Emphasized" text="Processar PA" press="onProcessarPa">
+					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+				</Button>
 				<!--<Button text="Cancelar">-->
 				<!--	<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>-->
 				<!--</Button>-->

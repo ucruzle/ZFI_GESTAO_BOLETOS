@@ -11,10 +11,8 @@ sap.ui.define([
 	return Controller.extend("sap.fi.gestaoboletos.controller.Conciliacao", {
 
 		onInit: function() {
-			
-			// this._mode = "";
-			// this._activeScreen = "view";
-			
+			this._mode = "";
+			this._activeScreen = "view";
 		},
 		
 		onNavBack: function() {
@@ -28,6 +26,86 @@ sap.ui.define([
 				var oRouter = UIComponent.getRouterFor(this);
 				oRouter.navTo("cockpit", {}, true);
 			}
+			
+		},
+		
+		onProcessarPa: function() {
+			this.onCarregaDadosCompensacao();
+			this._showProcessarPaFragment();
+		},
+		
+		_showProcessarPaFragment: function() {
+
+			if (!this._ProcessarPaFragment) {
+				this._ProcessarPaFragment = sap.ui.xmlfragment("ProcessarPa",
+					"sap.fi.gestaoboletos.view.Conciliacao.fragments.ProcessarPa",
+					this
+				);
+				this.getView().addDependent(this._ProcessarPaFragment);
+			}
+			this._ProcessarPaFragment.open();
+		},
+		
+		onSaveProcessarPa: function() {
+			this.onCloseProcessarPa();
+		},
+		
+		onCloseProcessarPa: function() {
+			this._activeScreen = "view";
+			this._ProcessarPaFragment.close();
+		},
+		
+		onCarregaDadosCompensacao: function() {
+		
+			// create JSON model instance
+			var oModel = new JSONModel();
+
+			// JSON sample data
+			var oData = {
+				Padroes: [
+					{
+						atribuicao:"20200504", 
+						nroDocumento:"5101045518", 
+						dataLancamento:"04/05/2018",
+						dataProgramacao:"04/05/2018",
+						valorBruto:"2,80-",
+						desconto:"",
+						percentual:""
+					},
+					{
+						atribuicao:"20200504", 
+						nroDocumento:"5101045519", 
+						dataLancamento:"04/05/2018",
+						dataProgramacao:"04/05/2018",
+						valorBruto:"1,80-",
+						desconto:"",
+						percentual:""
+					},
+					{
+						atribuicao:"20200504", 
+						nroDocumento:"5101045520", 
+						dataLancamento:"04/05/2018",
+						dataProgramacao:"04/05/2018",
+						valorBruto:"3,80-",
+						desconto:"",
+						percentual:""
+					},
+					{
+						atribuicao:"20200504", 
+						nroDocumento:"5101045521", 
+						dataLancamento:"04/05/2018",
+						dataProgramacao:"04/05/2018",
+						valorBruto:"4,80-",
+						desconto:"",
+						percentual:""
+					}
+				]};
+
+			// set the data for the model
+			oModel.setData(oData);
+			var oView = this.getView();
+			// set the model to the core
+			oView.setModel(oModel);
 			
 		}
 		

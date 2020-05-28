@@ -1,0 +1,237 @@
+<mvc:View controllerName="sap.fi.gestaoboletos.controller.Boleto" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" class="sapUiSizeCompact">
+	<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="3" labelSpanM="12" labelSpanS="12"
+		adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3"
+		singleContainerFullSize="false">
+		<f:content>
+			<!-- 1º Início - Coluna -->
+			<core:Title text="" level="H6"/>
+			<Label text="Cliente" required="false"/>
+			<Input id="idCliente" type="Text" showValueHelp="true" valueHelpRequest="handleValueHelpClientes" change="" value="" valueState=""
+				tooltip="Código do Cliente">
+				<layoutData>
+					<l:GridData span="XL3 L3 M3 S12"/>
+				</layoutData>
+			</Input>
+			<Input id="descricaoCliente" type="Text" enabled="false" value="{/descricaoCliente}"/>
+			<Label text="Empresa" required="false"/>
+			<Input id="idEmpresa" type="Text" showValueHelp="true" valueHelpRequest="handleValueHelpEmpresas" change="" value="" valueState=""
+				tooltip="Código da Empresa">
+				<layoutData>
+					<l:GridData span="XL3 L3 M3 S12"/>
+				</layoutData>
+			</Input>
+			<Input id="descricaoEmpresa" type="Text" enabled="false" value="{/descricaoEmpresa}"/>
+			<!-- 1º Fim - Coluna -->
+			<!-- 2º Início - Coluna -->
+			<core:Title text="" level="H6"/>
+			<Label text="Razão"/>
+			<Input id="razao" type="Text" enabled="true" value="{/razao}" tooltip="Documento Razão">
+				<layoutData>
+					<l:GridData span="XL3 L3 M3 S12"/>
+				</layoutData>
+			</Input>
+			<Label text="Nº Doc."/>
+			<Input id="nroDocumento" type="Text" enabled="true" value="{/nroDocumento}" tooltip="Nº do Documento Contábil">
+				<layoutData>
+					<l:GridData span="XL3 L3 M3 S12"/>
+				</layoutData>
+			</Input>
+			<!-- 2º Fim - Coluna -->
+			<!-- 3º Início - Coluna -->
+			<core:Title text="" level="H6"/>
+			<Label text=""/>
+			<!-- 3º Fim - Coluna -->
+		</f:content>
+	</f:SimpleForm>
+	<Panel width="auto" class="sapUiResponsiveMargin">
+		<headerToolbar>
+			<Toolbar>
+				<Title text="Items da Fatura"/>
+				<ToolbarSpacer/>
+				<Button icon="sap-icon://add" press="onAdicionaPartidas"/>
+			</Toolbar>
+		</headerToolbar>
+		<content>
+			<Table id="itensPartidas" delete="onDeletePartida" width="auto" updateFinished="onListUpdateFinished" mode="Delete"
+				noDataText="Nenhum partida localizada" busyIndicatorDelay="{detailView>/lineItemTableDelay}" fixedLayout="false"
+				class="sapUiResponsiveMargin" items="{/Partidas}">
+				<columns>
+					<Column>
+						<Text text="Atribuição"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="Nº Documento"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="Data de Lançamento"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="Data de Programação"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="Valor Bruto"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="Desconto"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="% de Desconto"/>
+					</Column>
+				</columns>
+				<items >
+					<ColumnListItem type="Navigation" press="onEditPartidas">
+						<cells>
+							<Text text="{atribuicao}"/>
+							<Text text="{nroDocumento}"/>
+							<Text text="{dataLancamento}"/>
+							<Text text="{dataProgramacao}"/>
+							<Text text="{valorBruto}"/>
+							<Input value="{desconto}" enabled="true" tooltip="Valor Bruto" showValueHelp="false" />
+							<Input value="{percentual}" enabled="true" tooltip="% de Desconto" showValueHelp="false" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="3" labelSpanM="12" labelSpanS="12"
+				adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3"
+				singleContainerFullSize="false">
+				<f:content>
+					<!-- 1º Início - Coluna -->
+					<core:Title text="" level="H6"/>
+					<Label text="" />
+					<!-- 1º Fim - Coluna -->
+					<!-- 2º Início - Coluna -->
+					<core:Title text="" level="H6"/>
+					<Label text="Montante" required="false"/>
+					<Input id="montante" type="Number" showValueHelp="false" valueHelpRequest="" change="" value="" valueState="" tooltip="Valor do Montante">
+						<layoutData>
+							<!--<l:GridData span="XL2 L2 M2 S2"/>-->
+							<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+							<l:GridData span="XL6 L6 M7 S7"/>
+						</layoutData>
+					</Input>
+					<Input id="moeda" type="Text" enabled="false" value="BRL"/>
+					<!-- 2º Fim - Coluna -->
+					<!-- 3º Início - Coluna -->
+					<core:Title text="" level="H6"/>
+					<Label text="Cód.Imposto" required="false"/>
+					<Input id="codigoImposto" type="Text" showValueHelp="false" valueHelpRequest="" change="" value="**" valueState=""
+						tooltip="Código do Imposto">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S12"/>
+						</layoutData>
+					</Input>
+					<Input id="impostoDescricao" type="Text" enabled="false" value=""/>
+					<!-- 3º Fim - Coluna -->
+				</f:content>
+			</f:SimpleForm>
+		</content>
+	</Panel>
+	<Panel width="auto" class="sapUiResponsiveMargin">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Title text="Dados Adicionais"/>
+				<ToolbarSpacer/>
+				<!--<Button icon="sap-icon://settings" />-->
+				<!--<Button icon="sap-icon://drop-down-list" />-->
+			</OverflowToolbar>
+		</headerToolbar>
+		<content>
+			<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="3" labelSpanM="12" labelSpanS="12"
+				adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3"
+				singleContainerFullSize="false">
+				<f:content>
+					<!-- 1º Início - Coluna -->
+					<core:Title text="" level="H6"/>
+					<Label text="Divisão" required="false"/>
+					<Input id="divisao" type="Text" showValueHelp="false" valueHelpRequest="" change="" value="" valueState="" tooltip="Divisão">
+						<layoutData>
+							<l:GridData span="XL2 L2 M2 S2"/>
+							<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+							<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+						</layoutData>
+					</Input>
+					<Label text="Base descon." required="false"/>
+					<Input id="baseDesconto" type="Text" showValueHelp="false" valueHelpRequest="" change="" value="" valueState="" tooltip="Base de Desconto">
+						<layoutData>
+							<!--<l:GridData span="XL2 L2 M2 S2"/>-->
+							<l:GridData span="XL3 L3 M3 S12"/>
+							<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+						</layoutData>
+					</Input>
+					<Input id="baseDescontoDescricao" type="Text" enabled="false" value=""/>
+					<Label text="Cond.pgto" required="false"/>
+					<Input id="condPgto" type="Text" showValueHelp="false" valueHelpRequest="" change="" value="" valueState="" tooltip="Condição de Pagamentos">
+						<layoutData>
+							<l:GridData span="XL2 L2 M2 S2"/>
+							<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+							<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+						</layoutData>
+					</Input>
+					<Label text="Data base" required="false"/>
+					<DatePicker id="idDataBase" displayFormat="short"
+						value="{ path: '/dataBase', type: 'sap.ui.model.type.Date', formatOptions: {style: 'short', UTC: true}}" tooltip="Data Base" change=""/>
+					<!-- 1º Fim - Coluna -->
+					<!-- 2º Início - Coluna -->
+					<core:Title text="" level="H6"/>
+					<Label text="Bloq / Fm" required="false"/>
+					<Input id="bloqueioPgto" type="Text" showValueHelp="false" valueHelpRequest="" change="" value="" valueState=""
+						tooltip="Bloqueio de Pagamento">
+						<layoutData>
+							<l:GridData span="XL2 L2 M2 S2"/>
+							<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+							<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+						</layoutData>
+					</Input>
+					<Input id="formaPgto" type="Text" showValueHelp="false" valueHelpRequest="" change="" value="" valueState="" tooltip="Forma de Pagamento">
+						<layoutData>
+							<l:GridData span="XL2 L2 M2 S2"/>
+							<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+							<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+						</layoutData>
+					</Input>
+					<Label text="Atribuição" required="false"/>
+					<Input id="idAtribuicao" type="Text" showValueHelp="false" valueHelpRequest="" change="" value="" valueState=""/>
+					<Label text="Refer.banco" required="false"/>
+					<Input id="idReferBanco" type="Text" showValueHelp="false" valueHelpRequest="" change="" value="" valueState="" tooltip="Banco Refência">
+						<layoutData>
+							<l:GridData span="XL2 L2 M2 S2"/>
+							<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+							<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+						</layoutData>
+					</Input>
+					<Input id="referBancoDescricao" type="Text" enabled="false" value=""/>
+					<Label text="Cód.Barras" required="false"/>
+					<Input id="idTexto" type="Text" showValueHelp="false" valueHelpRequest="" change="" value="" valueState="" tooltip="Código de Barras" />
+					<!-- 2º Fim - Coluna -->
+					<!-- 3º Início - Coluna -->
+					<core:Title text="" level="H6"/>
+					<Label text="Mont.descon." required="false"/>
+					<Input id="montanteDesconto" type="Number" showValueHelp="false" valueHelpRequest="" change="" value="" valueState=""
+						tooltip="Valor do Montante de Desconto">
+						<layoutData>
+							<!--<l:GridData span="XL2 L2 M2 S2"/>-->
+							<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+							<l:GridData span="XL6 L6 M7 S7"/>
+						</layoutData>
+					</Input>
+					<Input id="moedaMontanteDesconto" type="Text" enabled="false" value="BRL"/>
+					<Label text="Dias / %" required="false"/>
+					<Input id="idDias" type="Text" showValueHelp="false" valueHelpRequest="" change="" value="" valueState="" enabled="false"/>
+					<Label text="Fixado" required="false"/>
+					<Input id="idFixado" type="Text" showValueHelp="false" valueHelpRequest="" change="" value="" valueState="" tooltip="Fixado">
+						<layoutData>
+							<l:GridData span="XL2 L2 M2 S2"/>
+							<!--<l:GridData span="XL3 L3 M3 S12"/>-->
+							<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+						</layoutData>
+					</Input>
+					<Label text="Fatura Ref." required="false"/>
+					<Input id="idFaturaRef" type="Text" showValueHelp="false" valueHelpRequest="" change="" value="" valueState="" enabled="false"/>
+					<!-- 3º Fim - Coluna -->
+				</f:content>
+			</f:SimpleForm>
+		</content>
+	</Panel>
+</mvc:View>

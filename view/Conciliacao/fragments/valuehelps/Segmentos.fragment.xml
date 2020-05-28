@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+
+	<TableSelectDialog noDataText="Nenhum segmento encontrado" title="Selecionar Segmento" search="handleValueHelpSearchSegmentos"
+	    liveChange="handleValueHelpSearchSegmentos" confirm="handleCloseSegmentos" multiSelect="false" growingThreshold="500"
+		items="{Segmentos}">
+		<ColumnListItem>
+			<cells>
+				<Text text="{idSegmento}"/>
+				<Text text="{nome}"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column width="12em">
+				<header></header>
+			</Column>
+			<Column width="12em">
+				<header></header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+	
+</core:FragmentDefinition>

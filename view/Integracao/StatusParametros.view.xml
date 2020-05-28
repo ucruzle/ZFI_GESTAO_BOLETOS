@@ -1,0 +1,298 @@
+<mvc:View controllerName="sap.fi.gestaoboletos.controller.Integracao" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" class="sapUiSizeCompact">
+	
+	<IconTabBar
+		id="idIconTabBarMulti"
+		class="sapUiResponsiveContentPadding">
+		<items>
+			<IconTabFilter
+				icon="sap-icon://order-status" text="Status">
+				
+				<Panel width="auto" class="sapUiResponsiveMargin">
+					<headerToolbar>
+						<OverflowToolbar>
+							<Title text="Status"/>
+							<ToolbarSpacer />
+							<!--<Button icon="sap-icon://settings" />-->
+							<!--<Button icon="sap-icon://drop-down-list" />-->
+						</OverflowToolbar>
+					</headerToolbar>
+					<content>
+						
+						<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="3" labelSpanM="12" labelSpanS="12"
+									  adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3"
+									  singleContainerFullSize="false">
+							<f:content>
+						
+								<!-- 1º Início - Coluna -->
+								
+								<core:Title text="" level="H6"/>
+								
+								<ObjectStatus
+									class="sapUiSmallMarginBottom"
+									text="Parâmetro registrados"
+									icon="sap-icon://status-positive"
+									state="Success" />
+								<!--<ObjectStatus-->
+								<!--	class="sapUiSmallMarginBottom"-->
+								<!--	text="Parâmetro registrados com aviso"-->
+								<!--	icon="sap-icon://status-critical"-->
+								<!--	state="Warning" />-->
+								<!--<ObjectStatus-->
+								<!--	class="sapUiSmallMarginBottom"-->
+								<!--	text="Nenhum Parâmetro Encontrado"-->
+								<!--	icon="sap-icon://status-negative"-->
+								<!--	state="Error" />-->
+								
+								<!-- 1º Fim - Coluna -->
+						
+							</f:content>
+							
+						</f:SimpleForm>
+						
+					</content>
+				</Panel>
+				
+			</IconTabFilter>
+			<IconTabFilter
+				icon="sap-icon://action-settings" text="Parâmetros">
+				
+				<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="3" labelSpanM="12" labelSpanS="12"
+							  adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3"
+							  singleContainerFullSize="false">
+					<f:content>
+				
+						<!-- 1º Início - Coluna -->
+						<core:Title text="" level="H6"/>
+						<Label text="Data Exec." required="false"/>
+						<DatePicker id="idDataLancamento" displayFormat="short" 
+							value="{ path: '/dataLancamento', type: 'sap.ui.model.type.Date', formatOptions: {style: 'short', UTC: true}}" 
+							tooltip="Data de Lançamento" change="" />
+						<!-- 1º Fim - Coluna -->
+						
+						<!-- 2º Início - Coluna -->
+						<core:Title text="" level="H6"/>
+						<Label text="Doc até" required="false"/>
+						<DatePicker id="idDocsCriadosAte" displayFormat="short" 
+							value="{ path: '/docsCriadosAte', type: 'sap.ui.model.type.Date', formatOptions: {style: 'short', UTC: true}}" 
+							tooltip="Documentos criados até" change="" />
+						<Label text="Vence até" required="false"/>
+						<DatePicker id="idVenceAte" displayFormat="short" 
+							value="{ path: '/venceAte', type: 'sap.ui.model.type.Date', formatOptions: {style: 'short', UTC: true}}" 
+							tooltip="item cliente vence até" change="" />
+						<!-- 2º Fim - Coluna -->
+				
+					</f:content>
+					
+				</f:SimpleForm>
+				
+				<Panel width="auto" class="sapUiResponsiveMargin" accessibleRole="Region">
+					<headerToolbar>
+						<OverflowToolbar>
+							<Title text="Controle dos Parâmetros"/>
+							<ToolbarSpacer />
+							<!--<Button icon="sap-icon://settings" />-->
+							<!--<Button icon="sap-icon://drop-down-list" />-->
+						</OverflowToolbar>
+					</headerToolbar>
+					<content>
+						<mvc:XMLView viewName="sap.fi.gestaoboletos.view.Integracao.StatusParametros.ControleParametros"/>
+					</content>
+				</Panel>
+				
+				<Panel width="auto" class="sapUiResponsiveMargin" accessibleRole="Region">
+					<headerToolbar>
+						<OverflowToolbar>
+							<Title text="Contas"/>
+							<ToolbarSpacer />
+							<!--<Button icon="sap-icon://settings" />-->
+							<!--<Button icon="sap-icon://drop-down-list" />-->
+						</OverflowToolbar>
+					</headerToolbar>
+					<content>
+						
+						<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="3" labelSpanM="12" labelSpanS="12"
+							  adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3"
+							  singleContainerFullSize="false">
+							<f:content>
+						
+								<!-- 1º Início - Coluna -->
+								<core:Title text="" level="H6"/>
+								<Label text="Cliente" required="false"/>
+								<Input id="idContaClienteDe" type="Text" showValueHelp="true" valueHelpRequest="handleValueHelpContaClienteDe" 
+									   change="" value="" valueState="" tooltip="Conta Cliente" />
+								<Label text="Fornecedor" required="false"/>
+								<Input id="idContaForncedorDe" type="Text" showValueHelp="true" valueHelpRequest="handleValueHelpContaForncedoreDe" 
+								       change="" value="" valueState="" tooltip="Conta Fornecedor" />
+								<!-- 1º Fim - Coluna -->
+								
+								<!-- 2º Início - Coluna -->
+								<core:Title text="" level="H6"/>
+								<Label text="até" required="false"/>
+								<Input id="idContaClienteAte" type="Text" showValueHelp="true" valueHelpRequest="handleValueHelpContaClienteAte" 
+									   change="" value="" valueState="" tooltip="Conta Cliente" />
+								<Label text="até" required="false"/>
+								<Input id="idContaForncedorAte" type="Text" showValueHelp="true" valueHelpRequest="handleValueHelpContaForncedoreAte" 
+								       change="" value="" valueState="" tooltip="Conta Fornecedor" />
+								<!-- 2º Fim - Coluna -->
+						
+							</f:content>
+							
+						</f:SimpleForm>
+						
+					</content>
+				</Panel>
+				
+				<Panel width="auto" class="sapUiResponsiveMargin" accessibleRole="Region">
+					<headerToolbar>
+						<OverflowToolbar>
+							<Title text="Moedas estrangeiras"/>
+							<ToolbarSpacer />
+							<!--<Button icon="sap-icon://settings" />-->
+							<!--<Button icon="sap-icon://drop-down-list" />-->
+						</OverflowToolbar>
+					</headerToolbar>
+					<content>
+						
+						<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="3" labelSpanM="12" labelSpanS="12"
+							  adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3"
+							  singleContainerFullSize="false">
+							<f:content>
+						
+								<!-- 1º Início - Coluna -->
+								<core:Title text="" level="H6"/>
+								<Label text="Câmbio" required="false"/>
+								<Input id="idCambio" type="Text" showValueHelp="true" valueHelpRequest="handleValueHelpCambio" 
+									   change="" value="" valueState="" tooltip="Categoria, taxa de câmbio para conversão">
+									<layoutData>
+										<!--<l:GridData span="XL2 L2 M2 S2"/>-->
+										<l:GridData span="XL3 L3 M3 S12"/>
+										<!--<l:GridData span="XL6 L6 M7 S7"/>-->
+									</layoutData>
+								</Input>	   
+									   
+									   
+								<!-- 1º Fim - Coluna -->
+								
+								<!-- 2º Início - Coluna -->
+								<core:Title text="" level="H6"/>
+								<Label text="" />
+								<!-- 2º Fim - Coluna -->
+						
+							</f:content>
+							
+						</f:SimpleForm>
+						
+					</content>
+				</Panel>
+				
+			</IconTabFilter>
+			<IconTabFilter
+				icon="sap-icon://multiselect-none" text="Seleção livre">
+				
+				<Panel width="auto" class="sapUiResponsiveMargin" accessibleRole="Region">
+					<headerToolbar>
+						<OverflowToolbar>
+							<Title text="Critérios de seleção"/>
+							<ToolbarSpacer />
+							<!--<Button icon="sap-icon://settings" />-->
+							<!--<Button icon="sap-icon://drop-down-list" />-->
+						</OverflowToolbar>
+					</headerToolbar>
+					<content>
+						
+						<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="3" labelSpanM="12" labelSpanS="12"
+							  adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2"
+							  singleContainerFullSize="false">
+							<f:content>
+						
+								<!-- 1º Início - Coluna -->
+								<core:Title text="" level="H6"/>
+								<Label text="NomeCpo." required="false"/>
+								<Input id="idNomeCpo1" type="Text" showValueHelp="true" valueHelpRequest="handleValueHelpNomeCpo" 
+									   change="" value="" valueState="" tooltip="Nome do Campo" enabled="false" />
+								<CheckBox id="exibirValores1" text="Exibir Valores" tooltip="Exibir Valores" selected="{exibirValores1}" />									   
+								<Label text="Valores" required="false"/>
+								<Input id="valores1" type="Text" enabled="true" value="{/valores1}" />
+								<Label text="" />
+								<Input id="valoresExt1" type="Text" enabled="true" value="{/valoresExt1}" />
+								
+								<Label text="NomeCpo." required="false"/>
+								<Input id="idNomeCpo2" type="Text" showValueHelp="true" valueHelpRequest="handleValueHelpNomeCpo" 
+									   change="" value="" valueState="" tooltip="Nome do Campo" enabled="false" />
+								<CheckBox id="exibirValores2" text="Exibir Valores" tooltip="Exibir Valores" selected="{exibirValores2}" />									   
+								<Label text="Valores" required="false"/>
+								<Input id="valores2" type="Text" enabled="true" value="{/valores2}" />
+								<Label text="" />
+								<Input id="valoresExt2" type="Text" enabled="true" value="{/valoresExt2}" />
+								
+								<Label text="NomeCpo." required="false"/>
+								<Input id="idNomeCpo3" type="Text" showValueHelp="true" valueHelpRequest="handleValueHelpNomeCpo" 
+									   change="" value="" valueState="" tooltip="Nome do Campo" enabled="false" />
+								<CheckBox id="exibirValores3" text="Exibir Valores" tooltip="Exibir Valores" selected="{exibirValores3}" />									   
+								<Label text="Valores" required="false"/>
+								<Input id="valores3" type="Text" enabled="true" value="{/valores3}" />
+								<Label text="" />
+								<Input id="valoresExt3" type="Text" enabled="true" value="{/valoresExt3}" />
+								
+								<Label text="NomeCpo." required="false"/>
+								<Input id="idNomeCpo4" type="Text" showValueHelp="true" valueHelpRequest="handleValueHelpNomeCpo" 
+									   change="" value="" valueState="" tooltip="Nome do Campo" enabled="false" />
+								<CheckBox id="exibirValores4" text="Exibir Valores" tooltip="Exibir Valores" selected="{exibirValores4}" />									   
+								<Label text="Valores" required="false"/>
+								<Input id="valores4" type="Text" enabled="true" value="{/valores4}" />
+								<Label text="" />
+								<Input id="valoresExt4" type="Text" enabled="true" value="{/valoresExt4}" />
+								<!-- 1º Fim - Coluna -->
+								
+								<!-- 2º Início - Coluna -->
+								<core:Title text="" level="H6"/>
+								<Label text="" />
+								<!-- 2º Fim - Coluna -->
+						
+							</f:content>
+							
+						</f:SimpleForm>
+						
+					</content>
+				</Panel>
+				
+			</IconTabFilter>
+			<IconTabFilter
+				icon="sap-icon://log" text="Log Adicional">
+				
+				<Panel width="auto" class="sapUiResponsiveMargin" accessibleRole="Region">
+					<headerToolbar>
+						<OverflowToolbar>
+							<Title text="Log de programações realizadas"/>
+							<ToolbarSpacer />
+							<!--<Button icon="sap-icon://settings" />-->
+							<!--<Button icon="sap-icon://drop-down-list" />-->
+						</OverflowToolbar>
+					</headerToolbar>
+					<content>
+						<mvc:XMLView viewName="sap.fi.gestaoboletos.view.Integracao.StatusParametros.ListaLogAdicional"/>
+					</content>
+				</Panel>
+				
+			</IconTabFilter>
+			<IconTabFilter
+				icon="sap-icon://supplier" text="Impress.e sup.dados">
+				<Panel width="auto" class="sapUiResponsiveMargin" accessibleRole="Region">
+					<headerToolbar>
+						<OverflowToolbar>
+							<Title text="Impressão de Formulário / Intercâmnio de suporte de dados"/>
+							<ToolbarSpacer />
+							<!--<Button icon="sap-icon://settings" />-->
+							<!--<Button icon="sap-icon://drop-down-list" />-->
+						</OverflowToolbar>
+					</headerToolbar>
+					<content>
+						<mvc:XMLView viewName="sap.fi.gestaoboletos.view.Integracao.StatusParametros.ListaImpressaoFormulario"/>
+					</content>
+				</Panel>
+			</IconTabFilter>
+		</items>
+	</IconTabBar>
+	
+</mvc:View>	

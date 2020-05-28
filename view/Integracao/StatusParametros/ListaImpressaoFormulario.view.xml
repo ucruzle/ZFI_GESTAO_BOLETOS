@@ -1,0 +1,39 @@
+<mvc:View controllerName="sap.fi.gestaoboletos.controller.Integracao" 
+		  xmlns="sap.ui.table"
+		  xmlns:mvc="sap.ui.core.mvc"
+		  xmlns:u="sap.ui.unified"
+		  xmlns:c="sap.ui.core"
+		  xmlns:m="sap.m"
+	      height="100%">
+	
+		<Table
+			rows="{/Intercambio}"
+			selectionMode="Single"
+			visibleRowCount="3"
+			ariaLabelledBy="title">
+			<columns>
+				<Column width="11rem" hAlign="Center">
+					<multiLabels>
+						<m:Label text="Programa / Serviço" tooltip="Programa ou Serviço" />
+					</multiLabels>
+					<template>
+						<m:ComboBox value="{codigoIntercambio}" items="{intercambios}" enabled="{codigoIntercambio ? true : false }">
+							<c:ListItem text="{descricaoIntercambio}" />
+						</m:ComboBox>
+					</template>
+				</Column>
+				<Column width="6rem" hAlign="Center">
+					<multiLabels>
+						<m:Label text="Variante" tooltip="Nome da Variante" />
+					</multiLabels>
+					<template>
+						<m:Input value="{Variante}" 
+								 enabled="true" 
+								 tooltip="Nome da Variante"
+								 showValueHelp="true" />
+					</template>
+				</Column>
+			</columns>
+		</Table>
+	
+</mvc:View>

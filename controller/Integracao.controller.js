@@ -14,7 +14,7 @@ sap.ui.define([
 			
 			// this._mode = "";
 			// this._activeScreen = "view";
-			
+			this.onListaTipoIntercambios();
 		},
 		
 		onNavBack: function() {
@@ -28,6 +28,108 @@ sap.ui.define([
 				var oRouter = UIComponent.getRouterFor(this);
 				oRouter.navTo("cockpit", {}, true);
 			}
+			
+		},
+		
+		onAddControleParametros: function() {
+		
+			// create JSON model instance
+			var oModel = new JSONModel();
+
+			// JSON sample data
+			var oData = {
+				Controle: [
+					{
+						empresas:"SAPBR", 
+						formaPagamento:"B", 
+						proximaDataLancamento:"27/08/2018"
+					},
+					{
+						empresas:"SAP01", 
+						formaPagamento:"B", 
+						proximaDataLancamento:"29/08/2018"
+					},
+					{
+						empresas:"SAP02", 
+						formaPagamento:"B", 
+						proximaDataLancamento:"28/08/2018"
+					},
+					{
+						empresas:"SAP03", 
+						formaPagamento:"B", 
+						proximaDataLancamento:"30/08/2018"
+					}
+				]};
+
+			// set the data for the model
+			oModel.setData(oData);
+			var oView = this.getView();
+			// set the model to the core
+			oView.setModel(oModel);
+			
+		},
+		
+		onRefreshLogAdicional: function() {
+		
+			// create JSON model instance
+			var oModel = new JSONModel();
+
+			// JSON sample data
+			var oData = {
+				LogAdicional: [
+					{
+						dataLancamento:"27/08/2018", 
+						dataProgramada:"29/08/2018", 
+						mensagem:"Programação realizada com sucesso"
+					},
+					{
+						dataLancamento:"29/08/2018", 
+						dataProgramada:"01/09/2018", 
+						mensagem:"Programação realizada com avisos"
+					},
+					{
+						dataLancamento:"01/09/2018", 
+						dataProgramada:"05/09/2018", 
+						mensagem:"Programação realizada com erro"
+					},
+					{
+						dataLancamento:"27/08/2018", 
+						dataProgramada:"29/08/2018", 
+						mensagem:"Programação realizada com sucesso"
+					}
+				]};
+
+			// set the data for the model
+			oModel.setData(oData);
+			var oView = this.getView();
+			// set the model to the core
+			oView.setModel(oModel);
+			
+		},
+		
+		onListaTipoIntercambios: function() {
+		
+			// create JSON model instance
+			var oModel = new JSONModel();
+
+			// JSON sample data
+			var oData = {
+				Intercambio: [
+					{
+						intercambios:[
+							{ codigoIntercambio:"VAN", descricaoIntercambio:"Intercâmbio por VAN" },
+							{ codigoIntercambio:"WSDL", descricaoIntercambio:"Intercâmbio por Web Service" },
+							{ codigoIntercambio:"REST", descricaoIntercambio:"Intercâmbio por API" }
+						],
+						Variante:""
+					}
+				]};
+
+			// set the data for the model
+			oModel.setData(oData);
+			var oView = this.getView();
+			// set the model to the core
+			oView.setModel(oModel);
 			
 		}
 		

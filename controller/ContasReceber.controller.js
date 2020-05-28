@@ -11,10 +11,8 @@ sap.ui.define([
 	return Controller.extend("sap.fi.gestaoboletos.controller.ContasReceber", {
 
 		onInit: function() {
-			
-			// this._mode = "";
-			// this._activeScreen = "view";
-			
+			this._mode = "";
+			this._activeScreen = "view";
 		},
 		
 		onNavBack: function() {
@@ -75,6 +73,79 @@ sap.ui.define([
 			// set the model to the core
 			oView.setModel(oModel);
 			
+		},
+		
+		handleValueHelpEmpresas: function(oEvent) {
+
+			this.inputId = oEvent.getSource().getId();
+			// create value help dialog
+			if (!this._valueHelpDialogEmpresas) {
+				this._valueHelpDialogEmpresas = sap.ui.xmlfragment(
+					"Empresas",
+					"sap.fi.gestaoboletos.view.ContasReceber.fragments.valuehelps.Empresas",
+					this
+				);
+				this.getView().addDependent(this._valueHelpDialogEmpresas);
+			}
+			// this.getOwnerComponent().getModel("ListasAuxiliaresLocal").setProperty("/Z_LISTA_MATERIAISSet", []);
+			this._valueHelpDialogEmpresas.open();
+		},
+		
+		handleValueHelpClientes: function(oEvent) {
+
+			this.inputId = oEvent.getSource().getId();
+			// create value help dialog
+			if (!this._valueHelpDialogClientes) {
+				this._valueHelpDialogClientes = sap.ui.xmlfragment(
+					"Clientes",
+					"sap.fi.gestaoboletos.view.ContasReceber.fragments.valuehelps.Clientes",
+					this
+				);
+				this.getView().addDependent(this._valueHelpDialogClientes);
+			}
+			// this.getOwnerComponent().getModel("ListasAuxiliaresLocal").setProperty("/Z_LISTA_MATERIAISSet", []);
+			this._valueHelpDialogClientes.open();
+		},
+		
+		handleValueHelpSegmentos: function(oEvent) {
+
+			this.inputId = oEvent.getSource().getId();
+			// create value help dialog
+			if (!this._valueHelpDialogSegmentos) {
+				this._valueHelpDialogSegmentos = sap.ui.xmlfragment(
+					"Segmentos",
+					"sap.fi.gestaoboletos.view.ContasReceber.fragments.valuehelps.Segmentos",
+					this
+				);
+				this.getView().addDependent(this._valueHelpDialogSegmentos);
+			}
+			// this.getOwnerComponent().getModel("ListasAuxiliaresLocal").setProperty("/Z_LISTA_MATERIAISSet", []);
+			this._valueHelpDialogSegmentos.open();
+		},
+		
+		onEditPartida: function(oEvent) {
+			this._showDetalhesPartidaFragment();
+		},
+		
+		_showDetalhesPartidaFragment: function() {
+
+			if (!this._DetalhesPartidaFragment) {
+				this._DetalhesPartidaFragment = sap.ui.xmlfragment("DetalhesPartida",
+					"sap.fi.gestaoboletos.view.ContasReceber.fragments.DetalhesPartida",
+					this
+				);
+				this.getView().addDependent(this._DetalhesPartidaFragment);
+			}
+			this._DetalhesPartidaFragment.open();
+		},
+		
+		onSaveDetalhesPartida: function() {
+			this.onCloseDetalhesPartida();
+		},
+		
+		onCloseDetalhesPartida: function() {
+			this._activeScreen = "view";
+			this._DetalhesPartidaFragment.close();
 		}
 		
 		// onFiltrarBaixaPendente: function(oEvent) {
